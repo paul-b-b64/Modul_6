@@ -1,7 +1,7 @@
 class Figure:
     sides_count = 0
     def __init__(self):
-        self.__sides = []
+        self.__sides = [23]
         self.__color = [255, 255, 255] # по умолчанию фигура - белая
         self.filled = True
 
@@ -70,19 +70,35 @@ class Triangle(Figure):
             self.set_sides(1, 1, 1)
 
 class Cube(Figure):
-    sides_count = 1
+    sides_count = 12
 
     def __init__(self, r, g, b, *new_sides):
         super().__init__()
         self.set_color(r, g, b)
-        if len(new_sides) == 1:
-            self.set_sides(*new_sides)
-            self._super__sides = self.get_sides()
+        a = new_sides[0]
+        self.set_sides(a, a, a, a, a, a, a, a, a, a, a, a)
 
-            # self.set_sides(*new_sides)
-            # self._super__sides = [new_sides] * 9
-        else:
-            self._super__sides = [1] * 9
+        # if len(new_sides) == 1:
+        #     self.set_sides(*new_sides)
+        #     self.__sides = self.get_sides()
+        #
+        #     # self.set_sides(*new_sides)
+        #     # self._super__sides = [new_sides] * 9
+        # else:
+        #     self._super__sides = [1] * 9
+        # # a = self._super__sides
+        # sides = self.get_sides()
+        # self.sides_cube = []
+        # if len(new_sides) == 1:
+        #     self.set_sides(*new_sides)
+        #     self.__sides = self.get_sides()
+        #     for i in range(12):
+        #         self.sides_cube[1] = new_sides
+        #
+        #     # self.set_sides(*new_sides)
+        #     # self._super__sides = [new_sides] * 9
+        # else:
+        #     self._super__sides = [1] * 9
         # a = self._super__sides
         # sides = self.get_sides()
 
@@ -91,16 +107,4 @@ class Cube(Figure):
 
 cub1 = Cube(200, 43, 23, 45)
 print(cub1.get_sides())
-
-
-
-
-# tr1 = Triangle(200, 2444, 150, 3, 4, 2)
-# print(tr1.get_sides())
-# print(tr1.get_color())
-# print(len(tr1))
-#
-
-
-
 
